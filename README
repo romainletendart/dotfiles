@@ -1,0 +1,4 @@
+Use GNU stow to install:
+
+cd dotfiles
+stow bash X --target=$HOME

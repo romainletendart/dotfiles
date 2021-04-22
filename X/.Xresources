@@ -1,0 +1,71 @@
+/* Couleurs Tango */
+URxvt.foreground: #C8C8C8
+URxvt.background: #323232
+URxvt.color0:     #2E3436
+URxvt.color1:     #CC0000
+URxvt.color2:     #4E9A06
+URxvt.color3:     #C4A000
+URxvt.color4:     #3465A4
+URxvt.color5:     #75507B
+URxvt.color6:     #06989A
+URxvt.color7:     #D3D7CF
+URxvt.color8:     #555753
+URxvt.color9:     #EF2929
+URxvt.color10:    #8AE234
+URxvt.color11:    #FCE94F
+URxvt.color12:    #729FCF
+URxvt.color13:    #AD7FA8
+URxvt.color14:    #34E2E2
+URxvt.color15:    #EEEEEC
+
+URxvt.transparent: true
+URxvt.shading:     10
+URxvt.fading:      40
+URxvt.font:        xft:Mono:pixelsize=14.5
+
+URxvt.scrollBar:         false
+URxvt.scrollTtyOutput:   false
+URxvt.scrollWithBuffer:  true
+URxvt.scrollTtyKeypress: true
+URxvt.saveLines:         4000
+URxvt.skipBuiltinGlyphs: true
+
+! Disable ISO 14755 unicode input so we can use Ctrl-Shift bindings
+URxvt.iso14755:    false
+URxvt.iso14755_52: false
+
+! Disable Ctrl-Alt-c & Ctrl-Alt-v bindings (optional)
+URxvt.keysym.C-M-c: builtin-string:
+URxvt.keysym.C-M-v: builtin-string:
+
+! Bind Ctrl-Shift-c & Ctrl-Shift-v to copy and paste
+! I dont know why, but I needed to use hex keysym values to get it to work
+URxvt.keysym.C-S-0x43: eval:selection_to_clipboard
+URxvt.keysym.C-S-0x56: eval:paste_clipboard
+
+! Use a nice truetype font and size by default...
+xterm*faceName: DejaVu Sans Mono Book
+xterm*faceSize: 11
+
+xterm*foreground: #C8C8C8
+xterm*background: #323232
+xterm*color0:     #2E3436
+xterm*color1:     #CC0000
+xterm*color2:     #4E9A06
+xterm*color3:     #C4A000
+xterm*color4:     #3465A4
+xterm*color5:     #75507B
+xterm*color6:     #06989A
+xterm*color7:     #D3D7CF
+xterm*color8:     #555753
+xterm*color9:     #EF2929
+xterm*color10:    #8AE234
+xterm*color11:    #FCE94F
+xterm*color12:    #729FCF
+xterm*color13:    #AD7FA8
+xterm*color14:    #34E2E2
+xterm*color15:    #EEEEEC
+
+! right hand side scrollbar...
+xterm*rightScrollBar: true
+xterm*ScrollBar: true
