@@ -33,7 +33,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 export DE="xfce"
-export TERM="urxvt"
+export TERM="xfce4-terminal"
 export EDITOR="vim"
 
 setxkbmap fr

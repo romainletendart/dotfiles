@@ -21,7 +21,7 @@ URxvt.color15:    #EEEEEC
 URxvt.transparent: true
 URxvt.shading:     10
 URxvt.fading:      40
-URxvt.font:        xft:Mono:pixelsize=14.5
+URxvt.font:        xft:Noto:pixelsize=14
 
 URxvt.scrollBar:         false
 URxvt.scrollTtyOutput:   false
@@ -44,8 +44,10 @@ URxvt.keysym.C-S-0x43: eval:selection_to_clipboard
 URxvt.keysym.C-S-0x56: eval:paste_clipboard
 
 ! Use a nice truetype font and size by default...
-xterm*faceName: DejaVu Sans Mono Book
+xterm*faceName: Noto Color Emoji
 xterm*faceSize: 11
+xterm*locale: true
+xterm*utf8: 1
 
 xterm*foreground: #C8C8C8
 xterm*background: #323232
