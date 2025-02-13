@@ -25,5 +25,25 @@ jqdotted() {
 }
 
 which () {
-    declare -f | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@
+    if [ "$(uname)" == "Darwin" ]; then
+        /usr/bin/which $@
+    else
+        declare -f | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@
+    fi
+}
+
+gg () {
+    git grep "$@"
+}
+
+ggpy () {
+    git grep "$@" -- '*.py'
+}
+
+ggi18n () {
+    git grep "$@" -- '*/i18n/locales/*'
+}
+
+rgd () {
+    rg --json -C 2 "$@" | delta
 }
