@@ -21,6 +21,7 @@
     default = upstream
 
 [merge]
+    conflictstyle = diff3
     tool = meld
 
 [rebase]
@@ -28,22 +29,29 @@
 
 [branch]
     autosetuprebase = always
+    sort = -committerdate
 
 [core]
-    pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = delta
 
 [diff]
+    colorMoved = default
     relative = true
 
 [diff "ansible-vault"]
     cachetextconv = false
     textconv = "ansible-vault view --vault-password-file=.vault-password-file.txt"
 
-[diff-so-fancy]
-    markEmptyLines = true
-
 [alias]
     stat = diff --stat
+    ls = ls-tree --name-only HEAD
 
 [credential]
     helper = store
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
