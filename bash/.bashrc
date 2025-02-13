@@ -22,9 +22,13 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
+# Enable extra git info in prompt if we are within a git repo.
+if [ -f /usr/share/git/completion/git-prompt.sh ]; then
+    source /usr/share/git/completion/git-prompt.sh
+fi
+
 if [ -f ~/.bash_prompt ]; then
-    . ~/.bash_prompt
-    PS1=$(custom_ps1)
+    source ~/.bash_prompt
 fi
 
 # Python, virtualenv
