@@ -1,4 +1,4 @@
 Use GNU stow to install:
 
 cd dotfiles
-stow bash X git --target=$HOME
+stow bash X git hypr --target=$HOME
