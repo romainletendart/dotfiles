@@ -14,11 +14,6 @@ export FZF_DEFAULT_COMMAND="fd --type f"
 # virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
-
 export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then

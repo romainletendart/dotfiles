@@ -38,6 +38,11 @@ if command -v pyenv &>/dev/null; then
   pyenv virtualenvwrapper_lazy
 fi
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
+
 # Overriding PATH after `pyenv init -`'s PATH overriding.
 path_prepend "${HOME}/.local/bin"
 
