@@ -42,7 +42,7 @@ custom_prompt_command() {
 
     # /!\ Do not forget \[...\] around colors to tell bash color content is 0 characters long
 
-    export PROMPT_COMMAND='__git_ps1 "$return_code$before_git_ps1" "$after_git_ps1"'
+    export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;}"'__git_ps1 "$return_code$before_git_ps1" "$after_git_ps1"'
 }
 
 custom_prompt_command
