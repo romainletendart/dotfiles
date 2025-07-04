@@ -56,3 +56,35 @@ ggi18n () {
 rgd () {
     rg --json -C 2 "$@" | delta
 }
+
+resolve_python_path () {
+  python_dotted_path="$1"
+  # Replace all dots with slashes
+  candidate_path=${python_dotted_path//./\/}
+
+  while [[ -n "$candidate_path" ]]; do
+    # Map lines into an array to decide what to do depending on the number of resolved paths
+    mapfile -t result < <(fd --full-path "$candidate_path")
+    case "${#result[@]}" in
+    "0")
+      # The given path might have an object name at the end, let us skip it.
+      candidate_path=${candidate_path%/*}
+      continue
+      ;;
+    "1")
+      # Our candidate path matched an actual filesystem path!
+      echo "${result[0]}"
+      ;;
+    *)
+      # Too many
+      echo "${result[0]}"
+      ;;
+    esac
+    break
+  done
+}
+
+nvimp () {
+  resolved_python_path="""$(resolve_python_path "$1")"""
+  nvim "$resolved_python_path"
+}
