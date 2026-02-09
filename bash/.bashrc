@@ -31,17 +31,10 @@ if [ -f ~/.bash_prompt ]; then
   source ~/.bash_prompt
 fi
 
-# pyenv
-if command -v pyenv &>/dev/null; then
-  eval "$(pyenv init -)"
-  pyenv global 3.12.9
-  pyenv virtualenvwrapper_lazy
+# mise
+if [ -f "${HOME}/.cargo/bin/mise" ]; then
+  eval "$(${HOME}/.cargo/bin/mise activate bash)"
 fi
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 
 [[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 
