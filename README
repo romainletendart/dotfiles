@@ -1,4 +1,4 @@
 Use GNU stow to install:
 
 cd dotfiles
-stow bash X git hypr postgresql --target=$HOME
+stow bash X git hypr nvim postgresql --target=$HOME
