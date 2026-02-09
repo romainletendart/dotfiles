@@ -1,0 +1,7 @@
+[Unit]
+Description=Dockerized PostgreSQL server
+Requires=docker.service
+
+[Service]
+ExecStart=docker compose --file .config/postgres/docker-compose.yml up
+ExecStop=docker compose --file .config/postgres/docker-compose.yml down
