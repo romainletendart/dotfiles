@@ -2,3 +2,7 @@ Use GNU stow to install:
 
 cd dotfiles
 stow bash X git hypr nvim postgresql waybar --target=$HOME
+
+On Debian only:
+
+stow debian --target=$HOME
