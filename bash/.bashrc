@@ -31,6 +31,11 @@ if [ -f ~/.bash_prompt ]; then
   source ~/.bash_prompt
 fi
 
+# cargo
+if [ -f "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi
+
 # mise
 if [ -f "${HOME}/.cargo/bin/mise" ]; then
   eval "$(${HOME}/.cargo/bin/mise activate bash)"
@@ -49,6 +54,7 @@ alias githubize='git rebase --ignore-date origin/master'
 alias sed='sed --follow-symlinks'
 alias gitsed='git-iter sed --follow-symlinks'
 alias ssh='TERM=ansi ssh'
+alias bat='batcat'
 
 # History
 shopt -s histappend # Append current shell's history to .bash_history instead of wiping out what was already in it.
