@@ -34,7 +34,6 @@ fi
 
 export DE="xfce"
 export TERM="xfce4-terminal"
-export EDITOR="vim"
 
 setxkbmap fr
 numlockx

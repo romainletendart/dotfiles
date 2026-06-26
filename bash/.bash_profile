@@ -3,6 +3,7 @@
 #
 
 export BROWSER="firefox"
+export EDITOR="nvim"
 
 [[ -f ~/.bash_profile_extra ]] && . ~/.bash_profile_extra
 [[ -f ~/.bashrc ]] && . ~/.bashrc
