@@ -3,7 +3,6 @@
 #
 
 export BROWSER="firefox"
-export CDPATH=".:${HOME}/Repo:${HOME}/Projects"
 
 [[ -f ~/.bash_profile_extra ]] && . ~/.bash_profile_extra
 [[ -f ~/.bashrc ]] && . ~/.bashrc

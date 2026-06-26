@@ -36,6 +36,7 @@ if [ -f "${HOME}/.cargo/bin/mise" ]; then
   eval "$(${HOME}/.cargo/bin/mise activate bash)"
 fi
 
+[[ -s /usr/share/autojump/autojump.bash ]] && source /usr/share/autojump/autojump.bash
 [[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 
 # Overriding PATH after `pyenv init -`'s PATH overriding.
