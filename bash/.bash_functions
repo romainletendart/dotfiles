@@ -26,9 +26,16 @@ jqdotted() {
 
 which () {
     if [ "$(uname)" == "Darwin" ]; then
-        /usr/bin/which $@
+        /usr/bin/which "$@"
     else
-        declare -f | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@
+        local which_path
+        if [ "$(lsb_release --id --short)" == "Debian" ]; then
+            which_path=/usr/bin/which.gnu
+        else
+            which_path=/usr/bin/which
+        fi
+
+        declare -f | "$which_path" --tty-only --read-alias --read-functions --show-tilde --show-dot "$@"
     fi
 }
 
