@@ -14,21 +14,16 @@
 ------------------
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
-hl.monitor({
-	output = "",
-	mode = "preferred",
-	position = "auto",
-	scale = "auto",
-})
+require("monitors")
 
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
 
 -- Set programs that you use
-local terminal = "kitty"
-local fileManager = "dolphin"
-local menu = "hyprlauncher"
+local terminal = "ghostty"
+local fileManager = "thunar"
+local menu = "wofi --show drun"
 
 -------------------
 ---- AUTOSTART ----
@@ -37,13 +32,9 @@ local menu = "hyprlauncher"
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
 
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
--- Or execute your favorite apps at launch like this:
---
--- hl.on("hyprland.start", function ()
---   hl.exec_cmd(terminal)
---   hl.exec_cmd("nm-applet")
---   hl.exec_cmd("waybar & hyprpaper & firefox")
--- end)
+hl.on("hyprland.start", function()
+	hl.exec_cmd("dunst & hyprpaper")
+end)
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
@@ -210,16 +201,14 @@ hl.config({
 
 hl.config({
 	input = {
-		kb_layout = "us",
-		kb_variant = "",
+		kb_layout = "fr",
+		kb_variant = "azerty",
 		kb_model = "",
 		kb_options = "",
 		kb_rules = "",
-
 		follow_mouse = 1,
-
+		numlock_by_default = true,
 		sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
-
 		touchpad = {
 			natural_scroll = false,
 		},
@@ -246,7 +235,8 @@ hl.device({
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(
@@ -272,6 +262,13 @@ for i = 1, 10 do
 	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
 	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
+
+-- Switch to next/previous workspace with Control_L + Alt_L + right/left
+-- Move active window to next/previous workspace with mainMod + Shift_L + right/left
+hl.bind("CONTROL + ALT + right", hl.dsp.focus({ workspace = "+1" }))
+hl.bind("CONTROL + ALT + left", hl.dsp.focus({ workspace = -1 }))
+hl.bind(mainMod .. " + SHIFT + left", hl.dsp.window.move({ workspace = -1 }))
+hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.move({ workspace = "+1" }))
 
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
@@ -315,6 +312,7 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
+hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'))
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
