@@ -46,6 +46,9 @@ fi
 
 # Overriding PATH after `pyenv init -`'s PATH overriding.
 path_prepend "${HOME}/.local/bin"
+if [ -d "/snap/bin" ]; then
+  path_prepend "/snap/bin"
+fi
 
 # Python, virtualenv
 alias pycov='pytest --cov=$(basename ${PWD}) --cov-report=html --cov-branch'
@@ -54,7 +57,6 @@ alias githubize='git rebase --ignore-date origin/master'
 alias sed='sed --follow-symlinks'
 alias gitsed='git-iter sed --follow-symlinks'
 alias ssh='TERM=ansi ssh'
-alias bat='batcat'
 
 # History
 shopt -s histappend # Append current shell's history to .bash_history instead of wiping out what was already in it.
