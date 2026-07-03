@@ -17,6 +17,13 @@ echo "Updating manually installed debian packages..."
 "$SCRIPT_DIR"/update-extra-package-neovim.sh
 
 echo ""
-echo "Updating manually installed cargo packages"
-# cargo install --list | grep --extended-regexp --only-matching '^[^ ]+' | xargs cargo install
+echo "Updating manually installed cargo packages..."
 cargo-install-update install-update --all
+
+echo ""
+echo "Updating snaps..."
+sudo snap refresh
+
+echo ""
+echo "Updating mise tools..."
+mise upgrade
