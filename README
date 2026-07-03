@@ -1,7 +1,8 @@
 Use GNU stow to install:
 
 cd dotfiles
-stow bash X git hypr nvim postgresql waybar --target=$HOME
+stow bash X git nvim postgresql waybar --target=$HOME
+mkdir --parents ~/.config/hypr && stow hypr --target=$HOME
 
 On Debian only:
 
