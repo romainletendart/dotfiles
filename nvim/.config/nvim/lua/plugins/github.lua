@@ -1,6 +1,6 @@
 local function get_github_url()
   local result = vim.system({ "git", "remote", "get-url", "origin" }, { text = true }):wait()
-  local url_prefix = result.stdout:gsub("%.git%s*$", "")
+  local url_prefix = result.stdout:gsub("%.git%s*$", ""):gsub(":", "/"):gsub("git@", "https://")
 
   result = vim.system({ "git", "rev-parse", "--short", "HEAD" }, { text = true }):wait()
   local git_revision = result.stdout:gsub("%s", "")
@@ -17,6 +17,8 @@ vim.keymap.set("n", "<leader>og", function()
   local result = vim.system({ "xdg-open", url }):wait()
   if result.code == 0 then
     vim.notify("Opened: " .. url, vim.log.levels.INFO)
+  else
+    vim.notify("Failed to open: " .. url .. "\nError: " .. result.stderr, vim.log.levels.ERROR)
   end
 end, { desc = "[o]pen [g]ithub URL" })
 
