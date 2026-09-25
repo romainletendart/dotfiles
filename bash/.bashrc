@@ -37,8 +37,8 @@ if [ -f "$HOME/.cargo/env" ]; then
 fi
 
 # mise
-if [ -f "${HOME}/.cargo/bin/mise" ]; then
-  eval "$(${HOME}/.cargo/bin/mise activate bash)"
+if command -v mise &>/dev/null; then
+  eval "$(mise activate bash)"
 fi
 
 [[ -s /usr/share/autojump/autojump.bash ]] && source /usr/share/autojump/autojump.bash
