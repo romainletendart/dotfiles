@@ -64,6 +64,16 @@ rgd () {
     rg --json -C 2 "$@" | delta
 }
 
+rgu () {
+    # Search within any files (unrestricted)
+    rg --no-ignore --hidden "$@"
+}
+
+fzfu () {
+    # Search for any files (unrestricted)
+    FZF_DEFAULT_COMMAND="fd --no-ignore --hidden" fzf "$@"
+}
+
 resolve_python_path () {
   python_dotted_path="$1"
   # Replace all dots with slashes
