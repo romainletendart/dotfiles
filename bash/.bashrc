@@ -10,6 +10,8 @@
 [[ $- != *i* ]] && return
 
 # She comes in colours everywhere...
+alias exa='exa --icons=always --git'
+alias eza='eza --icons=always --git'
 alias ls='ls --color=always'
 alias grep='grep --color=always'
 alias pacman='pacman --color=always'
