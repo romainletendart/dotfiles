@@ -43,8 +43,11 @@ if command -v mise &>/dev/null; then
   eval "$(mise activate bash)"
 fi
 
-[[ -s /usr/share/autojump/autojump.bash ]] && source /usr/share/autojump/autojump.bash
-[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
+
+# zoxide
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init bash)"
+fi
 
 # Overriding PATH after `pyenv init -`'s PATH overriding.
 path_prepend "${HOME}/.local/bin"
