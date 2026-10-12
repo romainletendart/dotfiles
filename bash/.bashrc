@@ -43,6 +43,10 @@ if command -v mise &>/dev/null; then
   eval "$(mise activate bash)"
 fi
 
+# navi
+if command -v navi &>/dev/null; then
+  eval "$(navi widget bash)"
+fi
 
 # zoxide
 if command -v zoxide &>/dev/null; then
