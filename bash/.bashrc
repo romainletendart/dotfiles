@@ -12,6 +12,8 @@
 # She comes in colours everywhere...
 alias exa='exa --icons=always --git'
 alias eza='eza --icons=always --git'
+alias ezal='eza -lsnew'
+alias ll='ezal'
 alias ls='ls --color=always'
 alias grep='grep --color=always'
 alias pacman='pacman --color=always'
